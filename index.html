@@ -6,10 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Comp Gangs Fort Stats</title>
+<title>COMP. | Fort Stats</title>
 
 <link rel="stylesheet" href="style.css">
-
 
 <style>
 
@@ -18,113 +17,180 @@ scroll-behavior:smooth;
 }
 
 
+nav{
+position:relative;
+z-index:10;
+}
+
+
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-size:18px;
+cursor:pointer;
+transition:.25s;
+}
+
+
+nav ul li a:hover{
+color:#4285ff;
+}
+
+
+
+/* LEADERBOARD */
+
+.leaderboard{
+
+width:90%;
+max-width:1000px;
+margin:120px auto;
+text-align:center;
+
+}
+
+
+.leaderboard h1{
+
+font-size:55px;
+margin-bottom:50px;
+
+}
+
+
+
+.rank-card{
+
+display:flex;
+align-items:center;
+gap:25px;
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:25px;
+margin-bottom:25px;
+text-align:left;
+transition:.3s;
+
+}
+
+
+.rank-card:hover{
+
+transform:translateY(-5px);
+box-shadow:0 0 25px #4285ff;
+
+}
+
+
+
+.rank-card img{
+
+width:110px;
+height:110px;
+border-radius:50%;
+border:4px solid #4285ff;
+object-fit:cover;
+
+}
+
+
+
+.rank-card h2{
+
+font-size:30px;
+
+}
+
+
+
+.rank-card p{
+
+color:#c5cee0;
+margin-top:8px;
+
+}
+
+
+
+/* NEWS */
+
 .news-section{
-    width:90%;
-    max-width:1000px;
-    margin:100px auto;
-    text-align:center;
+
+width:90%;
+max-width:1000px;
+margin:100px auto;
+text-align:center;
+
 }
 
 
 .news-card{
 
-    background:#10182b;
-    border:2px solid #4285ff;
-    border-radius:18px;
-    padding:35px;
-    box-shadow:0 0 30px rgba(66,133,255,.35);
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:35px;
 
 }
-
 
 
 .news-card h2{
 
-    font-size:40px;
-    margin-bottom:30px;
+font-size:40px;
+margin-bottom:30px;
 
 }
-
 
 
 .news-card img{
 
-    width:100%;
-    max-width:800px;
-    border-radius:15px;
-    border:4px solid #4285ff;
+width:100%;
+max-width:800px;
+border-radius:15px;
+border:4px solid #4285ff;
 
 }
 
 
 
-.back-button{
+/* NOTE */
 
-    display:inline-block;
-    margin-bottom:30px;
-    padding:12px 35px;
-    background:#4285ff;
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    border-radius:8px;
-    transition:.25s;
+.score-note{
+
+margin-top:50px;
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:30px;
 
 }
 
 
+.score-note h2{
 
-.back-button:hover{
-
-    background:#256ef0;
-    transform:scale(1.05);
+margin-bottom:15px;
 
 }
 
 
+.score-note p{
 
-nav{
-
-    position:relative;
-    z-index:10;
-
-}
-
-
-
-nav ul{
-
-    display:flex;
-    list-style:none;
-    gap:35px;
+color:#c5cee0;
+font-size:18px;
+line-height:1.5;
 
 }
-
-
-
-nav ul li a{
-
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    cursor:pointer;
-    transition:.25s;
-
-}
-
-
-
-nav ul li a:hover{
-
-    color:#4285ff;
-
-}
-
 
 
 </style>
-
 
 </head>
 
@@ -138,15 +204,12 @@ nav ul li a:hover{
 
 <nav>
 
-
 <h1 class="logo">
 COMP.
 </h1>
 
 
-
 <ul>
-
 
 <li>
 <a href="#top">Home</a>
@@ -154,7 +217,7 @@ COMP.
 
 
 <li>
-<a href="#">Leaderboard</a>
+<a href="#leaderboard">Leaderboard</a>
 </li>
 
 
@@ -170,7 +233,6 @@ COMP.
 
 </ul>
 
-
 </nav>
 
 
@@ -185,44 +247,200 @@ FORTNITE STATS PLATFORM
 </p>
 
 
-
 <h1>
-
 COMP GANGS<br>
-
 <span>FORT STATS.</span>
-
 </h1>
 
 
-
 <p>
-
 Track player stats, earnings, PR, tournaments,
 leaderboards and much more.
-
 </p>
 
 
-
 <div class="buttons">
-
 
 <a href="players.html">
 EXPLORE
 </a>
 
 
-
 <a href="#">
 DISCORD
 </a>
-
 
 </div>
 
 
 </section>
+
+
+
+
+
+
+
+
+<section class="leaderboard" id="leaderboard">
+
+
+<h1>
+🏆 COMP. Leaderboard
+</h1>
+
+
+
+
+<div class="rank-card">
+
+
+<img src="images/Screenshot 2026-07-29 220536.png">
+
+
+<div>
+
+<h2>
+🥇 prsm twixy28!
+</h2>
+
+<p>
+COMP Score: 450
+</p>
+
+<p>
+PR: 130 | Tournament Wins: 16 | Rank: Unreal
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="rank-card">
+
+
+<img src="images/Screenshot 2026-07-29 220536.png">
+
+
+<div>
+
+<h2>
+🥈 fginspyre
+</h2>
+
+<p>
+COMP Score: 260
+</p>
+
+<p>
+PR: 70 | Tournament Wins: 9 | Rank: Unreal
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="rank-card">
+
+
+<img src="images/Screenshot 2026-07-29 220536.png">
+
+
+<div>
+
+<h2>
+🥉 Void 111 Slurpy!
+</h2>
+
+<p>
+COMP Score: 147
+</p>
+
+<p>
+PR: 58 | Tournament Wins: 3 | Rank: Unreal
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="rank-card">
+
+
+<img src="images/Screenshot 2026-07-29 220536.png">
+
+
+<div>
+
+<h2>
+4️⃣ Astro floppy!
+</h2>
+
+<p>
+COMP Score: 5
+</p>
+
+<p>
+PR: 0 | Tournament Wins: 0 | Rank: Diamond
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="score-note">
+
+
+<h2>
+How COMP Score Works
+</h2>
+
+
+<p>
+Players are ranked using COMP Score.
+</p>
+
+
+<p>
+PR is worth x2, Tournament Wins are worth x10,
+Cash Cup Finals are worth x20, and tournament
+placements add bonus points.
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
 
 
 
@@ -241,15 +459,7 @@ DISCORD
 </h2>
 
 
-
-<a class="back-button" href="#top">
-HOME
-</a>
-
-
-
-<img src="images/HOZhzuEasAEsaIa.jpg" alt="The Siiimpsooons">
-
+<img src="images/HOZhzuEasAEsaIa.jpg">
 
 
 </div>

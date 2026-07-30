@@ -17,6 +17,8 @@ scroll-behavior:smooth;
 }
 
 
+/* NAV */
+
 nav{
 position:relative;
 z-index:10;
@@ -60,9 +62,35 @@ text-align:center;
 .leaderboard h1{
 
 font-size:55px;
-margin-bottom:50px;
+margin-bottom:30px;
 
 }
+
+
+
+.home-button{
+
+display:inline-block;
+margin-bottom:40px;
+padding:12px 35px;
+background:#4285ff;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+transition:.25s;
+
+}
+
+
+.home-button:hover{
+
+background:#256ef0;
+transform:scale(1.05);
+
+}
+
 
 
 
@@ -71,15 +99,20 @@ margin-bottom:50px;
 display:flex;
 align-items:center;
 gap:25px;
+
 background:#10182b;
 border:2px solid #4285ff;
 border-radius:18px;
+
 padding:25px;
 margin-bottom:25px;
+
 text-align:left;
+
 transition:.3s;
 
 }
+
 
 
 .rank-card:hover{
@@ -95,8 +128,10 @@ box-shadow:0 0 25px #4285ff;
 
 width:110px;
 height:110px;
+
 border-radius:50%;
 border:4px solid #4285ff;
+
 object-fit:cover;
 
 }
@@ -120,13 +155,53 @@ margin-top:8px;
 
 
 
+/* SCORE INFO */
+
+.score-note{
+
+margin-top:50px;
+
+background:#10182b;
+
+border:2px solid #4285ff;
+
+border-radius:18px;
+
+padding:30px;
+
+}
+
+
+
+.score-note h2{
+
+margin-bottom:15px;
+
+}
+
+
+
+.score-note p{
+
+color:#c5cee0;
+font-size:18px;
+line-height:1.5;
+
+}
+
+
+
+
+
 /* NEWS */
 
 .news-section{
 
 width:90%;
 max-width:1000px;
+
 margin:100px auto;
+
 text-align:center;
 
 }
@@ -135,8 +210,11 @@ text-align:center;
 .news-card{
 
 background:#10182b;
+
 border:2px solid #4285ff;
+
 border-radius:18px;
+
 padding:35px;
 
 }
@@ -154,38 +232,10 @@ margin-bottom:30px;
 
 width:100%;
 max-width:800px;
+
 border-radius:15px;
+
 border:4px solid #4285ff;
-
-}
-
-
-
-/* NOTE */
-
-.score-note{
-
-margin-top:50px;
-background:#10182b;
-border:2px solid #4285ff;
-border-radius:18px;
-padding:30px;
-
-}
-
-
-.score-note h2{
-
-margin-bottom:15px;
-
-}
-
-
-.score-note p{
-
-color:#c5cee0;
-font-size:18px;
-line-height:1.5;
 
 }
 
@@ -195,7 +245,9 @@ line-height:1.5;
 </head>
 
 
+
 <body id="top">
+
 
 
 <canvas id="space"></canvas>
@@ -204,12 +256,15 @@ line-height:1.5;
 
 <nav>
 
+
 <h1 class="logo">
 COMP.
 </h1>
 
 
+
 <ul>
+
 
 <li>
 <a href="#top">Home</a>
@@ -232,6 +287,7 @@ COMP.
 
 
 </ul>
+
 
 </nav>
 
@@ -259,6 +315,7 @@ leaderboards and much more.
 </p>
 
 
+
 <div class="buttons">
 
 <a href="players.html">
@@ -269,6 +326,7 @@ EXPLORE
 <a href="#">
 DISCORD
 </a>
+
 
 </div>
 
@@ -288,6 +346,12 @@ DISCORD
 <h1>
 🏆 COMP. Leaderboard
 </h1>
+
+
+<a class="home-button" href="#top">
+HOME
+</a>
+
 
 
 
@@ -312,11 +376,11 @@ COMP Score: 450
 PR: 130 | Tournament Wins: 16 | Rank: Unreal
 </p>
 
-
 </div>
 
 
 </div>
+
 
 
 
@@ -365,9 +429,11 @@ PR: 70 | Tournament Wins: 9 | Rank: Unreal
 🥉 Void 111 Slurpy!
 </h2>
 
+
 <p>
 COMP Score: 147
 </p>
+
 
 <p>
 PR: 58 | Tournament Wins: 3 | Rank: Unreal
@@ -396,9 +462,11 @@ PR: 58 | Tournament Wins: 3 | Rank: Unreal
 4️⃣ Astro floppy!
 </h2>
 
+
 <p>
 COMP Score: 5
 </p>
+
 
 <p>
 PR: 0 | Tournament Wins: 0 | Rank: Diamond
@@ -409,6 +477,8 @@ PR: 0 | Tournament Wins: 0 | Rank: Diamond
 
 
 </div>
+
+
 
 
 
@@ -446,8 +516,6 @@ placements add bonus points.
 
 
 
-
-
 <section class="news-section" id="news">
 
 
@@ -466,8 +534,6 @@ placements add bonus points.
 
 
 </section>
-
-
 
 
 

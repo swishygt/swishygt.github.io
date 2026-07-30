@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMP. | Players</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#050913;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:.55;
+z-index:-1;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:35px 70px;
+}
+
+.logo{
+font-size:48px;
+font-weight:900;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:35px;
+font-size:18px;
+transition:.25s;
+}
+
+nav a:hover{
+color:#4c8dff;
+}
+
+.title{
+text-align:center;
+font-size:60px;
+font-weight:bold;
+margin-top:40px;
+margin-bottom:50px;
+}
+
+.players{
+width:90%;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding-bottom:60px;
+}
+
+.card{
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:25px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px #4285ff;
+}
+
+.card img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #4285ff;
+margin-bottom:20px;
+}
+
+.card h2{
+font-size:24px;
+}
+
+.card p{
+color:#9ca6ba;
+margin-top:8px;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.85);
+}
+
+.popup{
+width:430px;
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:35px;
+text-align:center;
+}
+
+.popup img{
+width:160px;
+height:160px;
+border-radius:50%;
+border:4px solid #4285ff;
+margin-bottom:20px;
+}
+
+.popup h2{
+font-size:35px;
+margin-bottom:20px;
+}
+
+.popup p{
+font-size:20px;
+margin:12px 0;
+}
+
+.close{
+margin-top:25px;
+padding:12px 35px;
+background:#4285ff;
+border:none;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.close:hover{
+background:#256ef0;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">COMP.</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="#">Leaderboard</a>
+<a href="players.html">Players</a>
+<a href="#">News</a>
+</nav>
+
+</header>
+
+<div class="title">
+Players
+</div>
+
+<div class="players">
+
+<div class="card" onclick="openPlayer(0)">
+<img src="https://via.placeholder.com/160" alt="">
+<h2>prsm twixy28!</h2>
+<p>Click to view profile</p>
+</div>
+
+<div class="card" onclick="openPlayer(1)">
+<img src="https://via.placeholder.com/160" alt="">
+<h2>fginspyre</h2>
+<p>Click to view profile</p>
+</div>
+
+<div class="card" onclick="openPlayer(2)">
+<img src="https://via.placeholder.com/160" alt="">
+<h2>Void 111 Slurpy!</h2>
+<p>Click to view profile</p>
+</div>
+
+<div class="card" onclick="openPlayer(3)">
+<img src="https://via.placeholder.com/160" alt="">
+<h2>Astro floppy!</h2>
+<p>Click to view profile</p>
+</div>
+
+</div>
+
+<div class="modal" id="modal">
+
+<div class="popup">
+
+<img src="https://via.placeholder.com/160" id="pfp">
+
+<h2 id="name"></h2>
+
+<p><b>PR:</b> <span id="pr"></span></p>
+
+<p><b>Tournament Wins:</b> <span id="wins"></span></p>
+
+<p><b>Cash Cup Finals:</b> <span id="cash"></span></p>
+
+<p><b>Best Tournament Placement:</b> <span id="placement"></span></p>
+
+<p><b>Highest Rank:</b> <span id="rank"></span></p>
+
+<button class="close" onclick="closePlayer()">Close</button>
+
+</div>
+
+</div>
+
+<script>
+
+const players=[
+
+{
+name:"prsm twixy28!",
+pr:"130 PR",
+wins:"16",
+cash:"1x",
+placement:"7th Place Elite Ranked Cup",
+rank:"Unreal"
+},
+
+{
+name:"fginspyre",
+pr:"70 PR",
+wins:"9",
+cash:"1x",
+placement:"7th Place Elite Ranked Cup",
+rank:"Unreal"
+},
+
+{
+name:"Void 111 Slurpy!",
+pr:"58 PR",
+wins:"3",
+cash:"0",
+placement:"256th Place Duos Ranked Cup ZB",
+rank:"Unreal"
+},
+
+{
+name:"Astro floppy!",
+pr:"0 PR",
+wins:"0",
+cash:"0",
+placement:"69th Place Duos Ranked Cup Platinum Reload",
+rank:"Diamond"
+}
+
+];
+
+function openPlayer(id){
+
+document.getElementById("modal").style.display="flex";
+
+document.getElementById("name").innerHTML=players[id].name;
+
+document.getElementById("pr").innerHTML=players[id].pr;
+
+document.getElementById("wins").innerHTML=players[id].wins;
+
+document.getElementById("cash").innerHTML=players[id].cash;
+
+document.getElementById("placement").innerHTML=players[id].placement;
+
+document.getElementById("rank").innerHTML=players[id].rank;
+
+}
+
+function closePlayer(){
+
+document.getElementById("modal").style.display="none";
+
+}
+
+window.onclick=function(e){
+
+const modal=document.getElementById("modal");
+
+if(e.target==modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

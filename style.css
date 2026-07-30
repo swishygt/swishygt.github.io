@@ -2,28 +2,33 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#070b14;
+    background:#03050d;
     color:white;
+    overflow:hidden;
 }
 
-/* Navigation */
+#space{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
 
 nav{
+    width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 80px;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:30px 100px;
 }
 
 .logo{
     font-size:42px;
     font-weight:900;
-    letter-spacing:2px;
+    color:white;
 }
 
 nav ul{
@@ -32,76 +37,63 @@ nav ul{
     gap:40px;
 }
 
-nav ul li{
-    color:#b8c0d1;
+nav li{
+    color:#c8d0e0;
     cursor:pointer;
-    transition:.3s;
 }
-
-nav ul li:hover{
-    color:#2d8cff;
-}
-
-/* Hero */
 
 .hero{
-    height:90vh;
+    height:85vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding-left:140px;
-
-    background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-
-    background-size:65px 65px;
+    padding-left:100px;
 }
 
-.small-title{
-    color:#2d8cff;
-    letter-spacing:4px;
-    margin-bottom:20px;
-    font-size:15px;
+.small{
+    color:#3f8cff;
     font-weight:bold;
+    letter-spacing:5px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:120px;
+    font-size:110px;
     line-height:.9;
     font-weight:900;
 }
 
 .hero span{
-    color:#2d8cff;
+    color:#3f8cff;
 }
 
-.description{
-    color:#9ca3b5;
+.hero p{
     font-size:24px;
-    width:700px;
+    color:#9fa8ba;
+    width:650px;
     margin-top:30px;
-    line-height:1.6;
+    line-height:1.5;
 }
 
 .buttons{
-    margin-top:40px;
+    margin-top:45px;
 }
 
-.btn{
+.buttons a{
     display:inline-block;
     text-decoration:none;
-    padding:18px 40px;
+    padding:18px 42px;
     margin-right:20px;
+    border-radius:8px;
     font-weight:bold;
 }
 
-.primary{
-    background:#2d8cff;
+.buttons a:first-child{
+    background:#3f8cff;
     color:white;
 }
 
-.secondary{
-    border:1px solid #2d8cff;
+.buttons a:last-child{
+    border:2px solid #3f8cff;
     color:white;
 }

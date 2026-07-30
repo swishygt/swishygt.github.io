@@ -1,608 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>COMP. | Fort Stats</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>COMP. | Players</title>
 
 <style>
 
-html{
-scroll-behavior:smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
 }
 
+body{
+background:#050913;
+color:white;
+overflow-x:hidden;
+}
 
-nav{
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.45;
+z-index:-1;
+}
+
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:35px 70px;
-position:relative;
-z-index:10;
 }
 
-
-nav ul{
-display:flex;
-gap:30px;
-list-style:none;
+.logo{
+font-size:48px;
+font-weight:900;
 }
 
-
-nav ul li a{
+nav a{
 color:white;
 text-decoration:none;
+margin-left:35px;
 font-size:18px;
 transition:.25s;
 }
 
-
-nav ul li a:hover{
+nav a:hover{
 color:#4285ff;
 }
 
-
-
-.home-button{
-
-display:inline-block;
-padding:12px 35px;
-margin-bottom:30px;
-background:#4285ff;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:.25s;
-
-}
-
-
-.home-button:hover{
-
-background:#256ef0;
-
-}
-
-
-
-
-/* RECENT TOURNAMENTS */
-
-.tournaments{
-
-width:90%;
-max-width:1000px;
-margin:120px auto;
+.title{
 text-align:center;
-
+font-size:60px;
+font-weight:bold;
+margin-top:40px;
+margin-bottom:50px;
 }
 
-
-.tournaments h1{
-
-font-size:55px;
-margin-bottom:40px;
-
+.players{
+width:90%;
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding-bottom:80px;
 }
 
+.card{
+background:#10182b;
+border:2px solid #4285ff;
+border-radius:18px;
+padding:25px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
 
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px #4285ff;
+}
 
-.tournament-card{
+.card img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #4285ff;
+margin-bottom:20px;
+}
 
+.card h2{
+font-size:24px;
+}
+
+.card p{
+color:#a9b2c5;
+margin-top:8px;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.85);
+}
+
+.popup{
+width:450px;
 background:#10182b;
 border:2px solid #4285ff;
 border-radius:18px;
 padding:35px;
-
-}
-
-
-
-.tournament-card h2{
-
-font-size:35px;
-margin-bottom:30px;
-
-}
-
-
-
-.tournament-card img{
-
-width:100%;
-max-width:800px;
-border-radius:15px;
-border:4px solid #4285ff;
-
-}
-
-
-
-
-
-/* LEADERBOARD */
-
-.leaderboard{
-
-width:90%;
-max-width:1000px;
-margin:120px auto;
 text-align:center;
-
 }
 
-
-.leaderboard h1{
-
-font-size:55px;
-margin-bottom:40px;
-
-}
-
-
-
-.rank-card{
-
-display:flex;
-align-items:center;
-gap:25px;
-
-background:#10182b;
-border:2px solid #4285ff;
-border-radius:18px;
-
-padding:25px;
-margin-bottom:25px;
-
-text-align:left;
-
-}
-
-
-
-.rank-card img{
-
-width:110px;
-height:110px;
-
+.popup img{
+width:160px;
+height:160px;
 border-radius:50%;
 border:4px solid #4285ff;
-
-object-fit:cover;
-
+margin-bottom:20px;
 }
 
-
-
-.rank-card h2{
-
-font-size:30px;
-
+.popup h2{
+font-size:34px;
+margin-bottom:20px;
 }
 
-
-
-.rank-card p{
-
-color:#c5cee0;
-margin-top:8px;
-
+.popup p{
+font-size:20px;
+margin:12px 0;
 }
 
-
-
-
-
-.score-note{
-
-margin-top:50px;
-background:#10182b;
-border:2px solid #4285ff;
-border-radius:18px;
-padding:30px;
-
-}
-
-
-
-.score-note p{
-
-color:#c5cee0;
+.close{
+margin-top:25px;
+padding:12px 35px;
+background:#4285ff;
+border:none;
+color:white;
 font-size:18px;
-
+border-radius:8px;
+cursor:pointer;
 }
 
-
-
-
-/* NEWS */
-
-.news-section{
-
-width:90%;
-max-width:1000px;
-margin:100px auto;
-text-align:center;
-
+.close:hover{
+background:#256ef0;
 }
-
-
-
-.news-card{
-
-background:#10182b;
-border:2px solid #4285ff;
-border-radius:18px;
-padding:35px;
-
-}
-
-
-
-.news-card h2{
-
-font-size:40px;
-margin-bottom:30px;
-
-}
-
-
-
-.news-card img{
-
-width:100%;
-max-width:800px;
-
-border-radius:15px;
-border:4px solid #4285ff;
-
-}
-
 
 </style>
 
 </head>
 
+<body>
 
-<body id="top">
+<header>
 
-
-<canvas id="space"></canvas>
-
-
+<div class="logo">COMP.</div>
 
 <nav>
-
-
-<h1 class="logo">
-COMP.
-</h1>
-
-
-
-<ul>
-
-<li>
-<a href="#top">Home</a>
-</li>
-
-
-<li>
-<a href="#tournaments">Recent Tournaments</a>
-</li>
-
-
-<li>
-<a href="#leaderboard">Leaderboard</a>
-</li>
-
-
-<li>
+<a href="index.html">Home</a>
+<a href="#">Leaderboard</a>
 <a href="players.html">Players</a>
-</li>
-
-
-<li>
-<a href="#news">News</a>
-</li>
-
-
-</ul>
-
-
+<a href="#">News</a>
 </nav>
 
+</header>
 
-
-
-
-<section class="hero">
-
-
-<p class="small">
-FORTNITE STATS PLATFORM
-</p>
-
-
-
-<h1>
-COMP GANGS<br>
-<span>FORT STATS.</span>
-</h1>
-
-
-
-<p>
-Track player stats, earnings, PR, tournaments,
-leaderboards and much more.
-</p>
-
-
-
-<div class="buttons">
-
-<a href="players.html">
-EXPLORE
-</a>
-
-
-<a href="#">
-DISCORD
-</a>
-
+<div class="title">
+Players
 </div>
 
+<div class="players">
 
-</section>
-
-
-
-
-
-
-
-<section class="tournaments" id="tournaments">
-
-
-<h1>
-🏆 Recent Tournaments
-</h1>
-
-
-
-<div class="tournament-card">
-
-
-<a class="home-button" href="#top">
-HOME
-</a>
-
-
-
-<h2>
-prsm twixy28! and fginspyre get top 3k in fncs last chance making 40 pr!
-</h2>
-
-
-
-<img src="images/Screenshot 2026-07-29 234721.png">
-
-
-</div>
-
-
-</section>
-<section class="leaderboard" id="leaderboard">
-
-
-<h1>
-🏆 COMP. Leaderboard
-</h1>
-
-
-<a class="home-button" href="#top">
-HOME
-</a>
-
-
-
-
-
-<div class="rank-card">
-
-
+<div class="card" onclick="openPlayer(0)">
 <img src="images/Screenshot 2026-07-29 220536.png">
-
-
-<div>
-
-<h2>
-🥇 prsm twixy28!
-</h2>
-
-<p>
-COMP Score: 450
-</p>
-
-<p>
-PR: 130 | Tournament Wins: 16 | Rank: Unreal
-</p>
-
+<h2>prsm twixy28!</h2>
+<p>Click to view profile</p>
 </div>
 
-
-</div>
-
-
-
-
-
-
-<div class="rank-card">
-
-
+<div class="card" onclick="openPlayer(1)">
 <img src="images/Screenshot 2026-07-29 220536.png">
-
-
-<div>
-
-<h2>
-🥈 fginspyre
-</h2>
-
-<p>
-COMP Score: 260
-</p>
-
-<p>
-PR: 70 | Tournament Wins: 9 | Rank: Unreal
-</p>
-
+<h2>fginspyre</h2>
+<p>Click to view profile</p>
 </div>
 
-
-</div>
-
-
-
-
-
-
-<div class="rank-card">
-
-
+<div class="card" onclick="openPlayer(2)">
 <img src="images/Screenshot 2026-07-29 220536.png">
-
-
-<div>
-
-<h2>
-🥉 Void 111 Slurpy!
-</h2>
-
-<p>
-COMP Score: 147
-</p>
-
-<p>
-PR: 58 | Tournament Wins: 3 | Rank: Unreal
-</p>
-
+<h2>Void 111 Slurpy!</h2>
+<p>Click to view profile</p>
 </div>
 
-
-</div>
-
-
-
-
-
-
-<div class="rank-card">
-
-
+<div class="card" onclick="openPlayer(3)">
 <img src="images/Screenshot 2026-07-29 220536.png">
+<h2>Astro floppy!</h2>
+<p>Click to view profile</p>
+</div>
 
-
-<div>
-
-<h2>
-4️⃣ Astro floppy!
-</h2>
-
-<p>
-COMP Score: 5
-</p>
-
-<p>
-PR: 0 | Tournament Wins: 0 | Rank: Diamond
-</p>
+<div class="card" onclick="openPlayer(4)">
+<img src="images/Screenshot 2026-07-29 220536.png">
+<h2>tiktok dylstro</h2>
+<p>Click to view profile</p>
+</div>
 
 </div>
 
+<div class="modal" id="modal">
+
+<div class="popup">
+
+<img src="images/Screenshot 2026-07-29 220536.png" id="pfp">
+
+<h2 id="name"></h2>
+
+<p><b>PR:</b> <span id="pr"></span></p>
+
+<p><b>Tournament Wins:</b> <span id="wins"></span></p>
+
+<p><b>Cash Cup Finals:</b> <span id="cash"></span></p>
+
+<p><b>Best Tournament Placement:</b> <span id="placement"></span></p>
+
+<p><b>Highest Rank:</b> <span id="rank"></span></p>
+<button class="close" onclick="closePlayer()">Close</button>
 
 </div>
 
-
-
-
-
-
-
-<div class="score-note">
-
-
-<h2>
-How COMP Score Works
-</h2>
-
-
-<p>
-Players are ranked using COMP Score.
-</p>
-
-
-<p>
-PR is worth x2, Tournament Wins are worth x10,
-Cash Cup Finals are worth x20, and tournament
-placements add bonus points.
-</p>
-
-
 </div>
 
+<script>
 
+const players=[
 
-</section>
+{
+name:"prsm twixy28!",
+pr:"130 PR",
+wins:"16",
+cash:"1x",
+placement:"7th Place Elite Ranked Cup",
+rank:"Unreal"
+},
 
+{
+name:"fginspyre",
+pr:"70 PR",
+wins:"9",
+cash:"1x",
+placement:"7th Place Elite Ranked Cup",
+rank:"Unreal"
+},
 
+{
+name:"Void 111 Slurpy!",
+pr:"58 PR",
+wins:"3",
+cash:"0",
+placement:"256th Place Duos Ranked Cup ZB",
+rank:"Unreal"
+},
 
+{
+name:"Astro floppy!",
+pr:"0 PR",
+wins:"0",
+cash:"0",
+placement:"69th Place Duos Ranked Cup Platinum Reload",
+rank:"Diamond"
+},
 
+{
+name:"tiktok dylstro",
+pr:"756 PR",
+wins:"100",
+cash:"0",
+placement:"8th Place Duos Ranked Cup Reload",
+rank:"Unreal"
+}
 
+];
 
+function openPlayer(id){
 
-<section class="news-section" id="news">
+document.getElementById("modal").style.display="flex";
 
+document.getElementById("name").innerHTML=players[id].name;
 
-<div class="news-card">
+document.getElementById("pr").innerHTML=players[id].pr;
 
+document.getElementById("wins").innerHTML=players[id].wins;
 
-<a class="home-button" href="#top">
-HOME
-</a>
+document.getElementById("cash").innerHTML=players[id].cash;
 
+document.getElementById("placement").innerHTML=players[id].placement;
 
+document.getElementById("rank").innerHTML=players[id].rank;
 
-<h2>
-🎵 The Siiimpsooons 🎵
-</h2>
+}
+  function closePlayer(){
 
+document.getElementById("modal").style.display="none";
 
+}
 
-<img src="images/HOZhzuEasAEsaIa.jpg" alt="The Siiimpsooons">
+window.onclick=function(e){
 
+const modal=document.getElementById("modal");
 
+if(e.target==modal){
 
-</div>
+modal.style.display="none";
 
+}
 
-</section>
+}
 
-
-
-
-
-
-<script src="script.js"></script>
-
+</script>
 
 </body>
-
 </html>

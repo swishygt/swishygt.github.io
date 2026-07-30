@@ -6,6 +6,7 @@
 <title>COMP. | Players</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -30,10 +31,9 @@ background-image:radial-gradient(white 1px, transparent 1px);
 background-size:40px 40px;
 opacity:.55;
 z-index:-1;
-pointer-events:none;  
+pointer-events:none;
 }
-  
-  
+
 
 header{
 display:flex;
@@ -59,6 +59,7 @@ nav a:hover{
 color:#4c8dff;
 }
 
+
 .title{
 text-align:center;
 font-size:60px;
@@ -66,6 +67,7 @@ font-weight:bold;
 margin-top:40px;
 margin-bottom:50px;
 }
+
 
 .players{
 width:90%;
@@ -77,6 +79,7 @@ gap:30px;
 padding-bottom:60px;
 }
 
+
 .card{
 background:#10182b;
 border:2px solid #4285ff;
@@ -87,10 +90,12 @@ cursor:pointer;
 transition:.3s;
 }
 
+
 .card:hover{
 transform:translateY(-8px);
 box-shadow:0 0 30px #4285ff;
 }
+
 
 .card img{
 width:140px;
@@ -101,14 +106,18 @@ border:4px solid #4285ff;
 margin-bottom:20px;
 }
 
+
 .card h2{
 font-size:24px;
 }
+
 
 .card p{
 color:#9ca6ba;
 margin-top:8px;
 }
+
+
 
 .modal{
 position:fixed;
@@ -122,6 +131,7 @@ align-items:center;
 background:rgba(0,0,0,.85);
 }
 
+
 .popup{
 width:430px;
 background:#10182b;
@@ -131,6 +141,7 @@ padding:35px;
 text-align:center;
 }
 
+
 .popup img{
 width:160px;
 height:160px;
@@ -139,15 +150,18 @@ border:4px solid #4285ff;
 margin-bottom:20px;
 }
 
+
 .popup h2{
 font-size:35px;
 margin-bottom:20px;
 }
 
+
 .popup p{
 font-size:20px;
 margin:12px 0;
 }
+
 
 .close{
 margin-top:25px;
@@ -160,13 +174,18 @@ border-radius:8px;
 cursor:pointer;
 }
 
+
 .close:hover{
 background:#256ef0;
 }
+
 </style>
 
 </head>
+
+
 <body>
+
 
 <header>
 
@@ -181,43 +200,55 @@ background:#256ef0;
 
 </header>
 
+
+
 <div class="title">
 Players
 </div>
 
+
+
 <div class="players">
 
-<div class="card" onclick="openPlayer(0)">
-<img src="https://via.placeholder.com/160" alt="">
+
+<div class="card">
+<img src="https://via.placeholder.com/160">
 <h2>prsm twixy28!</h2>
 <p>Click to view profile</p>
 </div>
 
-<div class="card" onclick="openPlayer(1)">
-<img src="https://via.placeholder.com/160" alt="">
+
+<div class="card">
+<img src="https://via.placeholder.com/160">
 <h2>fginspyre</h2>
 <p>Click to view profile</p>
 </div>
 
-<div class="card" onclick="openPlayer(2)">
-<img src="https://via.placeholder.com/160" alt="">
+
+<div class="card">
+<img src="https://via.placeholder.com/160">
 <h2>Void 111 Slurpy!</h2>
 <p>Click to view profile</p>
 </div>
 
-<div class="card" onclick="openPlayer(3)">
-<img src="https://via.placeholder.com/160" alt="">
+
+<div class="card">
+<img src="https://via.placeholder.com/160">
 <h2>Astro floppy!</h2>
 <p>Click to view profile</p>
 </div>
 
+
 </div>
+
+
+
 
 <div class="modal" id="modal">
 
 <div class="popup">
 
-<img src="https://via.placeholder.com/160" id="pfp">
+<img src="https://via.placeholder.com/160">
 
 <h2 id="name"></h2>
 
@@ -231,13 +262,21 @@ Players
 
 <p><b>Highest Rank:</b> <span id="rank"></span></p>
 
-<button class="close" onclick="closePlayer()">Close</button>
+
+<button class="close" id="close">
+Close
+</button>
+
 
 </div>
 
 </div>
+
+
+
 
 <script>
+
 
 const players=[
 
@@ -245,7 +284,7 @@ const players=[
 name:"prsm twixy28!",
 pr:"130 PR",
 wins:"16",
-cash:"1x",
+cash:"1x Cash Cup Finalist",
 placement:"7th Place Elite Ranked Cup",
 rank:"Unreal"
 },
@@ -254,7 +293,7 @@ rank:"Unreal"
 name:"fginspyre",
 pr:"70 PR",
 wins:"9",
-cash:"1x",
+cash:"1x Cash Cup Finalist",
 placement:"7th Place Elite Ranked Cup",
 rank:"Unreal"
 },
@@ -263,7 +302,7 @@ rank:"Unreal"
 name:"Void 111 Slurpy!",
 pr:"58 PR",
 wins:"3",
-cash:"0",
+cash:"0 Cash Cup Finals",
 placement:"256th Place Duos Ranked Cup ZB",
 rank:"Unreal"
 },
@@ -272,50 +311,69 @@ rank:"Unreal"
 name:"Astro floppy!",
 pr:"0 PR",
 wins:"0",
-cash:"0",
+cash:"0 Cash Cup Finals",
 placement:"69th Place Duos Ranked Cup Platinum Reload",
 rank:"Diamond"
 }
 
 ];
 
-function openPlayer(id){
 
-document.getElementById("modal").style.display="flex";
 
-document.getElementById("name").innerHTML=players[id].name;
-
-document.getElementById("pr").innerHTML=players[id].pr;
-
-document.getElementById("wins").innerHTML=players[id].wins;
-
-document.getElementById("cash").innerHTML=players[id].cash;
-
-document.getElementById("placement").innerHTML=players[id].placement;
-
-document.getElementById("rank").innerHTML=players[id].rank;
-
-}
-
-function closePlayer(){
-
-document.getElementById("modal").style.display="none";
-
-}
-
-window.onclick=function(e){
-
+const cards=document.querySelectorAll(".card");
 const modal=document.getElementById("modal");
 
-if(e.target==modal){
+
+
+cards.forEach((card,index)=>{
+
+card.addEventListener("click",()=>{
+
+
+document.getElementById("name").textContent=players[index].name;
+
+document.getElementById("pr").textContent=players[index].pr;
+
+document.getElementById("wins").textContent=players[index].wins;
+
+document.getElementById("cash").textContent=players[index].cash;
+
+document.getElementById("placement").textContent=players[index].placement;
+
+document.getElementById("rank").textContent=players[index].rank;
+
+
+modal.style.display="flex";
+
+
+});
+
+
+});
+
+
+
+document.getElementById("close").onclick=function(){
+
+modal.style.display="none";
+
+};
+
+
+
+window.onclick=function(event){
+
+if(event.target==modal){
 
 modal.style.display="none";
 
 }
 
-}
+};
+
 
 </script>
+
 
 </body>
 </html>
